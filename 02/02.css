@@ -1,0 +1,33 @@
+header{
+ background-color: aliceblue;
+}
+
+main{
+ background-color: aliceblue;
+}
+
+footer{
+ background-color: black;
+ color: white;
+}
+
+#menu > li {
+ background-color: red;
+ color: white;
+}
+
+#menu > a {
+ color: white;
+}
+
+section{
+ background-color: white;
+}
+
+.s1{
+ background-color: aqua;
+}
+
+.s2{
+ background-color: aquamarine;
+}
