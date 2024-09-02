@@ -1,0 +1,55 @@
+*{
+ padding: 0px;
+ margin: 0px;
+ box-sizing: border-box;
+}
+
+header, main{
+ width: 60%;
+ margin-left: 20%;
+
+ display: flex;
+}
+
+header{
+ height: 80px;
+ background-color: green;
+ color: white;
+
+ /* 간격 똑같이 맞추고 싶을 때 */
+ justify-content: space-between; 
+ align-items: center;
+ padding: 20px;
+}
+
+header img{
+ width: 30px;
+ height: 30px;
+}
+
+main{
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+ /* 임의로 높이를 줌 플렉스 위치선정을 위해서 */
+ height: 450px;
+ border: 1px dotted darkblue;
+}
+
+section{
+ margin: 5px;
+}
+
+section button{
+ padding: 9px;
+ border-radius: 5px;
+ background-color: rgb(169, 116, 219);
+ color: white;
+ border: none;
+}
+
+button:hover{
+ background-color: cyan;
+ font-weight: bold;
+}
