@@ -1,23 +1,45 @@
-h2>span{
+h2>span {
  color: red;
 }
 
-.sec1{
+.sec1 {
  display: flex;
  flex-direction: row;
  justify-content: center;
  align-items: center;
-}
-
-.sec1 > div{
  margin: 10px;
 }
 
-.div > h2{
- /* display: flex;
+.sec1 > div, .sec1  >button {
+ margin: 10px;
+}
+
+.dice {
+ padding: 10px;
+}
+
+.dice>h2 {
+ display: flex;
+
  flex-direction: column;
  justify-content: center;
  align-items: center;
+ margin-bottom: 10px;
 
- padding: 20px; */
+ padding: 20px;
+}
+
+#msg {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+ width: 90%;
+ height: 40px;
+ background-color: aliceblue;
+ border: 1px dotted gray;
+ padding: 10px;
+
+ font-weight: bold;
+ color: brown;
 }
