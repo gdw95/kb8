@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   //이미지 가져오기
-  const imgs = document.querySelectorAll('.dice > img');
+  const imgs = document.querySelectorAll('.dice > img');//셀렉터All로 가져오면 배열형식으로 가져옴
   console.log(imgs);
 
   //버튼 가져오기
@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //결과 가져오기
   const msg = document.querySelector('#msg');
   console.log(msg);
+  
 
-  //버튼클릭 0~5번 주사위 for문 이용
+  //버튼클릭 0~5번 주사위 for of문 이용
+
   // bts[0].addEventListener('click', () =>{});
     for (let bt of bts){
       // console.log(bt);
