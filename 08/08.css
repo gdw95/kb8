@@ -1,0 +1,37 @@
+
+
+
+header{
+ width: 60%;
+ background-color: green;
+}
+
+article{
+ width: 60%;
+}
+
+main{
+ display: flex;
+}
+
+h1 > div {
+ background-color: brown;
+}
+
+article {
+ background-color: aquamarine;
+ width: 80%;
+ height: 20%;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+ padding: 20px;
+}
+
+#text1 {
+height: 34px;
+border-radius: 5px;
+}
