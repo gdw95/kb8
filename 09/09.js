@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('s1=', s1);
   console.log('s2=', s2);
 
-  if (s1 == s2) txt2.value = '회문입니다.';
+  if (s1 == s2) text2.value = '회문입니다.';
   else txt2.value = '회문이 아닙니다.';
 
  });
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   e.preventDefault();
 
   let total = 0;
-  for (let c of txt1.value) {
+  for (let c of text1.value) {
    if (!isNaN(c)) {
     total = total + parseInt(c);
    }
