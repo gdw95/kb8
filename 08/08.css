@@ -1,6 +1,4 @@
-
-
-
+/* 
 header{
  width: 60%;
  background-color: green;
@@ -34,4 +32,50 @@ article {
 #text1 {
 height: 34px;
 border-radius: 5px;
+} */
+
+.sec, .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.sec {
+  margin: 2px; 
+  width: 100%;
+  flex-direction: column;
+}
+.row {
+  width: 80%;
+
+  flex-direction: row;
+}
+
+#txt1 {
+  height: 40px;
+}
+
+#bt1 {
+  width: auto;
+}
+
+input {
+ width: 40%;
+}
+
+.col1, .col2 {
+
+  width: 50%;
+  display: flex; 
+  align-items: center;
+  padding: 10px;
+}
+
+.col1 {
+  justify-content: end;
+}
+
+.col2 {
+  justify-content: start;
+} 
+
