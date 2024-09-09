@@ -1,0 +1,18 @@
+.sec, .sec1, .sec2, .sec3 {
+ width: 100%;
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+input {
+ width: 80%;
+ height: 30px;
+}
+
+.secBt1, .secBt2, .secBt3 {
+ width: 15%;
+ margin: 10px;
+}
+
