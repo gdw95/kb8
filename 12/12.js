@@ -15,6 +15,7 @@ const getData = (selDt, ul, gubun) => {
     .then(data => {//json 으로 받아서 하는 일 
       let dailyBoxOfficeList = data.boxOfficeResult.dailyBoxOfficeList;
       console.log(dailyBoxOfficeList)
+     
 
 
       // let openDt = data.boxOfficeResult.openDt;
@@ -42,6 +43,7 @@ const getData = (selDt, ul, gubun) => {
     })
     .catch(err => console.error(err));//오류가나면
 }
+
 
 
 //어제날짜함수생성
@@ -101,5 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     getData(dt.value.replaceAll('-', ''), ul, sel1.value);
   });
+
+
 
 });

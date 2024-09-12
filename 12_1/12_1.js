@@ -1,7 +1,60 @@
-//Open API 데이터 가져오기
+
+//전역변수
+const testAPI = '82ca741a2844c5c180a208137bb92bd7';
+
+
+//footer 영화상세정보 데이터 가져오기(장르)
+const getDetail = (genreNm) => {
+  const mvinfo = document.querySelector('#mvinfo');
+  let url = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?`;
+  url = `${url}&key=${testAPI}&movieCd=${genreNm}`;
+
+  console.log(url);
+
+  fetch(url)
+    .then(resp => resp.json())
+    .then(data => {
+      let movieInfo = data.movieInfoResult.movieInfo;
+      let gn = movieInfo.genres
+                        .map(item =>
+                          item.genreNm
+                        )
+                        .join(' ')//배열을 문자열로
+      let companys = movieInfo.companys
+                              .map(item =>
+                                `${item.companyNm}(${item.companyPartNm})`
+                              )//백틱문자로 문자열로->배열
+                              .join(' ')//배열을 한 번 더 문자열
+
+      // console.log(movieInfo)
+      // console.log(data.movieInfoResult)
+      console.log(gn)
+      console.log(companys)
+
+      mvinfo.innerHTML = `
+        <div>${movieInfo.movieNm} (${movieInfo.openDt})</div>
+        <ul>
+          <li>장르 : ${gn}</li> 
+          <li>출연진 : ${companys}</li>
+        </ul>
+      ` ;//선언한 변수명 사용
+
+    })
+    .catch(err => console.error(err))
+  
+
+}
+
+
+
+
+
+
+
+//Open API 데이터 가져오기 ->전역변수로
 const getData = (r3, ul, gubun) => {
   console.log('gubun= ', gubun);
-  const testAPI = '82ca741a2844c5c180a208137bb92bd7';
+
   let url = `https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?`;
   url = `${url}key=${testAPI}&targetDt=${r3}`;
   if (gubun !== 'T') {//T가 아니면
@@ -21,26 +74,29 @@ const getData = (r3, ul, gubun) => {
       // console.log(openDt)
 
       let tm = dailyBoxOfficeList.map(item =>
-        `<li class='mvli'>
-            <span class='rank'>${item.rank}</span> 
-            <span class='movieNm'>${item.movieNm}</span> 
-            <span class='openDt'>${item.openDt}</span> 
-            <span class='audiInten'>${item.audiInten}</span> 
-            <span class='rankInten'>${item.rankInten}</span>
+        `<a href="#" onClick="getDetail(${item.movieCd})">
+          <li class='mvli'>
+            
+            <span class='rank'>${item.rank}</span>
+            <span class='movieNm'>${item.movieNm}</span>
+            <span class='openDt'>${item.openDt}</span>
+            <span class='rankInten'>
             ${item.rankInten > 0 ?
           '<span class="spRed">▲</span>' : item.rankInten < 0 ?
             '<span class="spBlue">▼</span>' : '-'}
-          ${item.rankInten != 0 ? Math.abs(item.rankInten) : ''}
+            ${item.rankInten != 0 ? Math.abs(item.rankInten) : ''}
             </span>
-          </li>`)
+          </li>
+        </a>`)
 
       tm = tm.join('')
       ul.innerHTML = tm;
-      console.log(tm)
+      // console.log(tm)
 
     })
     .catch(err => console.error(err));//오류가나면
 }
+
 
 
 //어제날짜함수생성
@@ -74,9 +130,9 @@ const getGubun = () => {
   const r2 = document.querySelector('#r2');
   const r3 = document.querySelector('#r3');
 
-  console.log("r1 =", re.checked);
-  console.log("r2 =", re.checked);
-  console.log("r3 =", re.checked);
+  console.log("r1 =", r1.checked);
+  console.log("r2 =", r2.checked);
+  console.log("r3 =", r3.checked);
 
   if (r1.checked) return r1.vlaue;
   else if (r2.checked) return r2.value;
@@ -88,6 +144,16 @@ const getGubun = () => {
   return gubun.value;
 }
 
+//footer genreNm 
+
+
+
+
+
+
+
+
+
 
 //DOM 생성 후
 document.addEventListener('DOMContentLoaded', () => {
@@ -95,9 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //요소가져오기
   const dt = document.querySelector('#dt');
   const ul = document.querySelector('.sec > ul');
-  const radios = document.getElementsByName('myGubun');
-  // const radios = document.querySelectorAll('input[type=radio]');
+  // const fieldset = document.querySelector('fieldset') ;
+  // const radios = document.querySelectorAll('input[type=radio]') ; 
   // const radios = document.getElementsByName('mvGubun');
+  const radios = document.querySelectorAll('input[name=mvGubun]');
 
 
   //어제날짜가져오기
@@ -130,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
   for (let radio of radios) {
     radio.addEventListener('click', () => {
-      if (radio.checked) getData(dt.value.replaceAll('-', ''), ul, getGubun());
+      if (radio.checked) getData(dt.value.replaceAll('-', ''), ul, radio.value);
 
     })
   }
-});
+})
