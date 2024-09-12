@@ -31,7 +31,7 @@ flex-direction: row;
 border: 1px dotted gray;
 }
 
-input[type=date], .select{
+input[type=date], .select, fieldset{
 width: 40%;
 height: 30px;
 margin-left: 5px;
@@ -105,3 +105,10 @@ margin-left: 5px;
 margin-right: 5px;
 margin-left: 2px;
 }
+
+fieldset {
+ font-size: small;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+} 
