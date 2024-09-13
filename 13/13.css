@@ -1,0 +1,17 @@
+.col, img{
+ width: 60px;
+ height: 60px;
+
+ border: 1px solid blueviolet;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.row{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+}
+
