@@ -6,7 +6,7 @@ const testAPI = '82ca741a2844c5c180a208137bb92bd7';
 //footer 영화상세정보 데이터 가져오기(장르)
 const getDetail = (genreNm) => {
   const mvinfo = document.querySelector('#mvinfo');
-  let url = `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?`;
+  let url = `https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?`;
   url = `${url}&key=${testAPI}&movieCd=${genreNm}`;
 
   console.log(url);
